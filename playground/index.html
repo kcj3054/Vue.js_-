@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- vue 주속  -->
+    <div id="app">
+        <header>
+            <h2 class="container">검색</h2>
+        </header>
+
+        <div class="container">
+            <form v-on:submit.prevent="onSubmit">
+                <!-- vue에  input에 입력하면 query라는 변수에 값이 들어가게 되어있다  -->
+                <input type="text" v-model="query" v-on:keyUp="keyUp" placeholder="검색어를 입력하세요" autofocus>
+                <button v-show="query.length" v-on:click="onRest" type="reset" class="btn-reset"></button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+        //  < !--query 입력 데이터를 받아서저장 -- >
+            query : 'abc'
+
+        },
+            methods: {
+            onSubmit(e) {
+                debugger
+            },
+            onRest() {
+                this.query = ''
+            },
+            onKeyup() {
+                if (!this, query.length) this.onRest()
+            }
+        }
+        })
+    </script>
+</body>
+
+</html>
