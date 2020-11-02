@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{doubleNum}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el : '#app',
+            data : {
+                num : 10,
+            },
+            // doubleNum을 화면에서 코스형 괄호로 표시했을때  num의 두배로 표신된다 
+            computed : {
+                doubleNum : function() {
+                    return this.num * 2
+                }
+            },
+            // watch보다는 컴퓨티드로 간단한 계산하는 것이 더 좋다 
+            // 컴퓨티드랑 비슷하다 computed 값에 대한 계산, watch는 무거운 로직 데이터 요청에 적합하다 
+            watch : {
+                num : function(newValue, oldValue) {
+                    this.fetchUserByNumber(newValue);
+                }
+            },
+            methods : {
+                fetchUserByNumber : function(num) {
+                    console.log(num);
+                    // axios.get(num);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

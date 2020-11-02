@@ -1,0 +1,18 @@
+[VUE CLI 2.X]
+vue init '프로젝트 템플릿 유형', '프로젝트 폴더 위치'
+ex : vue init webpack-simple '프로젝트 폴더 위치'
+
+
+[VUE CLI 3.X]
+
+vue create '프로젝트 폴더 위치'
+
+
+==============
+vue create 실행하는데 오류 
+1. 이 시스템에서 스크립트를 실행할 수 없으므로~~~
+vue.cmd create 사용하면된다 
+
+
+cd vue-cli
+npm run serve 하면 cli를 이용하여 프로젝트만들 준비가 된거다 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{num}}
+        <button v-on:click="addNum">increase</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+    <script>
+        new Vue({
+            el : '#app',
+            methods : {
+                logText : function() {
+                    console.log('clicked');
+                },
+                addNum : function() {
+                     this.num ++;
+                }
+            },
+            data  : {
+                num : 10,
+
+            },
+            // watch는 데이터의 변환에 따라 특정로직을 실행 할 수 있다  ex : num이라는 데이터가 변하게 되어면 function이 실행하게 된다 
+            watch: {
+                num : function() {
+                    this.logText();
+                }
+            }
+        })
+    </script>
+</body>
+</html>
