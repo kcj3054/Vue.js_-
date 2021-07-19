@@ -16,3 +16,14 @@ vue.cmd create 사용하면된다
 
 cd vue-cli
 npm run serve 하면 cli를 이용하여 프로젝트만들 준비가 된거다 
+
+
+=====================
+vue cli 설치 -> npm install -g @vue/cli
+에러관련 나면 sudo npm install -g ~~~ 
+
+vue cli 4.x 버전이면 vue2 선택 
+
+vue create 
+vue-clicd vue-cli
+ npm run serve

@@ -6,11 +6,12 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- v-on 키보드나 마우스 입력에 대한 이벤트를 받을 수 있다 -->
     <div id="app">
         <!-- click 클릭하면 logText메서드가 발생한다  -->
-       <button v-on:click="logText">click me</button>
-       <input type="text" v-on:keyup.enter="logText">  
        <!-- keypup 다음에 붙는 .이 event modifier라고한다  -->
+       <button v-on:click="logText">click me</button>
+       <input type="text" v-on:keyup.enter="logText">
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

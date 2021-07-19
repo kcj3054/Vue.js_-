@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
+    
     <div id="app">
-        <!-- <app-header v-on:하위 컴포넌트에서 발생한 이벤트 이름 = "상위 컴포넌트의 메소드 이름"></app-header> -->
+        <p>{{ num }}</p> 
+        <!-- <app-header v-on:하위 컴포넌트에서 발생한 이벤트 이름= "상위컴포넌트의 메서드 이름 "></app-header> -->
         <app-header v-on:pass="logText"></app-header>
-        <app-content v-on:increase="increasNumber"></app-content>
-
+        <app-content v-on:increase="increaseNumber"></app-content>  
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
     <script>
+        
         var appHeader = {
-            template: '<button v-on:click="passEvent">ClickMe</button>',
+            template: '<button v-on:click="passEvent">click me</button>',
             methods: {
-                passEvent: function () {
+                passEvent: function() {
                     this.$emit('pass');
                 }
             }
         }
+
         var appContent = {
-            template: '<button v-on:click="addNumber">add</button>',
+            template:'<button v-on:click="addNumber">add</button>',
             methods: {
-                addNumber: function () {
-                    this.$emit('increase');
+                addNumber: function() {
+                    this.$emit('increase');  // add라는 버튼을 클릭 했을때 addNubmer 함수가 작동 - > increase라는  이벤트가 발생 
                 }
             }
         }
-        new Vue({
 
+        var vm = new Vue({
             el: '#app',
+
             components: {
-                'app-header': appHeader,
-                'app-content': appContent
+                'app-header' : appHeader,
+                'app-content': appContent,
             },
             methods: {
-                logText: function () {
+                logText: function() {
                     console.log('hi');
-
                 },
-                increasNumber: function () {
-                    this.num = this.num + 1;
+
+                increaseNumber: function() {
+                   this.num = this.num + 1;
                 }
             },
-            data: {
-                num: 10
-            }
 
+            data: {
+               num : 10
+            }
         });
     </script>
 </body>
-
 </html>
