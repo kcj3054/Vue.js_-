@@ -1,8 +1,6 @@
 <template>
   <div class="inputBox shadow">
-      <!-- v-model input에 입력된것을 vue 데이터에 맵핑한다  -->
-      <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo">
-      <!-- <button v-on:click="addTodo">add</button> -->
+    <input type="text" v-model="newTodoItem" v-on:keyup.enter="addTodo">
     <span class="addContainer" v-on:click="addTodo">
       <i class="addBtn fas fa-plus" aria-hidden="true"></i>
     </span>
@@ -11,23 +9,23 @@
 
 <script>
 export default {
-    data: function() {
-        return {
-            newTodoItem: ""
-        }
-    },
-    methods: {
-        addTodo: function() {
-            var obj = {completed: false, item: this.newTodoItem};
-            //저장 하는 로직 localStorage.setItem();
-            // json.stringfy(ojb) -> obj 객체가 스트링으로 들어간다 
-            localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
-            this.clearInput();
-        },
-        clearInput: function() {
-            this.newTodoItem= '';
-        }
+  data: function() {
+    return {
+      newTodoItem: ''
     }
+  },
+  methods: {
+    addTodo: function() {
+      if (this.newTodoItem !== '') {
+          //this.$emit('이벤트이름', 인자)
+        this.$emit('addTodoItem', 'this.newTodoItem');
+        this.clearInput();
+      }
+    },
+    clearInput: function() {
+      this.newTodoItem = '';
+    }
+  }
 }
 </script>
 
